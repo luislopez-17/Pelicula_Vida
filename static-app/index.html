@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mi Película de Vida — Prototipo con Deezer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Mi Película de Vida</h1>
+      <p>“De tus fotos al escenario: crea tu propia película.”</p>
+    </header>
+
+    <main class="container">
+      <section class="left">
+        <div class="controls">
+          <label class="file-input">
+            <input id="imageInput" type="file" accept="image/*" multiple />
+            Añadir imágenes
+          </label>
+
+          <label class="file-input">
+            <input id="audioInput" type="file" accept="audio/*" />
+            Seleccionar audio
+          </label>
+
+          <!-- 🔍 Buscador Deezer -->
+          <div class="deezer-search">
+            <input id="deezerQuery" type="text" placeholder="Buscar canción o artista (Deezer)" />
+            <button id="deezerSearchBtn">Buscar</button>
+          </div>
+          <div id="deezerResults" class="deezer-results"></div>
+
+          <div class="buttons">
+            <button id="playBtn">Reproducir</button>
+            <button id="stopBtn">Detener</button>
+            <button id="exportBtn">Exportar WebM</button>
+            <label class="file-input small">
+              <input id="loadProjectInput" type="file" accept="application/json" />
+              Cargar proyecto
+            </label>
+          </div>
+
+          <div class="audio-info" id="audioInfo">Audio: (ninguno)</div>
+        </div>
+
+        <div class="slides" id="slidesList"></div>
+      </section>
+
+      <section class="right">
+        <div class="preview-area">
+          <div id="previewContainer">
+            <img id="previewImage" alt="preview" />
+            <div id="previewOverlay" class="overlay">00:00</div>
+          </div>
+          <div class="timeline">
+            <input id="progress" type="range" min="0" max="100" value="0" />
+          </div>
+        </div>
+
+        <div class="export-log" id="log">Listo.</div>
+      </section>
+    </main>
+
+    <canvas id="exportCanvas" width="1280" height="720" style="display:none"></canvas>
+    <script type="module"   src="app.js"></script>
+  </body>
+</html>
